@@ -25,3 +25,26 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
 replayBtn.addEventListener("click", init)
 
 /*-------------------------------- Functions --------------------------------*/
+//init function needs to:
+  //set all circles in board to null
+  //select playerOne to play
+    //assign 1 to playerOne 
+    //assign -1 to playerTwo
+  //hide replay button
+  //start "turn" variable as null
+  //assign null to winner variable
+  //call render function 
+
+  inti() {
+    board = [
+      null, null, null, null, null, null, null,
+      null, null, null, null, null, null, null,
+      null, null, null, null, null, null, null,
+      null, null, null, null, null, null, null,
+      null, null, null, null, null, null, null,
+      null, null, null, null, null, null, null,
+    ]
+  }
+  
+  
+
