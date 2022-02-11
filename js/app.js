@@ -66,7 +66,10 @@ const message = document.getElementById("message")
 
 
   function checkBoard() {
-
+    for(let i =0; i < board.length; i++){
+      const a = board[i][0]
+    }
+  
 
   }
 
