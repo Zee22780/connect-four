@@ -28,6 +28,10 @@ body {
   flex-direction: column;
 }
 
+#welcome, #message {
+  text-align: center;
+}
+
 section.board {
   display: grid;
   grid-template-rows: repeat(6, 10vmin);
