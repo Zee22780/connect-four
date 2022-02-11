@@ -19,8 +19,9 @@ const circles = document.querySelectorAll(".circle")
 const replayBtn = document.getElementById("replay=button")
 const message = document.getElementById("message")
 
-
-
 /*----------------------------- Event Listeners -----------------------------*/
+circles.forEach(circle => circle.addEventListener("click", handleClick))
+//adds a click event listener to each circle - the forEach method handles all 41 circles!
+replayBtn.addEventListener("click", init)
 
 /*-------------------------------- Functions --------------------------------*/
