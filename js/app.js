@@ -1,16 +1,16 @@
 /*-------------------------------- Constants --------------------------------*/
 const winningCombos = [
   [0, 1, 2, 3],
-  [41, 40, 39, 38],
   [7, 8, 9, 10],
-  [34, 33, 32, 31],
   [14, 15, 16, 17],
-  [27, 26, 25, 24],
   [21, 22, 23, 24],
-  [20, 19, 18, 17],
   [28, 29, 30, 31],
-  [13, 12, 11, 10],
   [35, 36, 37, 38],
+  [41, 40, 39, 38],
+  [34, 33, 32, 31],
+  [27, 26, 25, 24],
+  [20, 19, 18, 17],
+  [13, 12, 11, 10],
   [6, 5, 4, 3],
   [0, 7, 14, 21],
   [41, 34, 27, 20],
@@ -73,11 +73,10 @@ const winningCombos = [
 
 
 
-
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner, playerOne, playerTwo, counter
 
-//board will the values of each cell - it should start as null
+//board will hold the values of each cell - it should start as null
 //turn will track which players turn it is
 //winner will track who the winner is and will start as null
 //playerOne and playerTwo will be our players and they will each hold a value of 1 and -1 respectively (these are the values that will be going into the board array as the game is played)
@@ -122,15 +121,30 @@ const message = document.getElementById("message")
     winner = null
     counter = 0
   }
+
+  //function handleClick
+  //this function listens for event (in this case a click on one of the circles) and then does something. 
+    //we want it to store a value either 1 or -1 to show which player has played
+    //we want the circle to change color to represent a "chip" being placed
+    //
   
   //function checkBoard
   //This function will check the board for winners
-    //uses the winningCombos array to look for winning combinations
-      //winning combos array is an array of arrays
+    //uses the winningCombos array to look for winning combinations. Winning combos array is an array of arrays
+  //Needs to assess if there is a sum of 4 or -4 in each of these indexes. 
+    //if 4, playerOne has won
+    //if -4, playerTwo has won
+    //if any other sum, game should continue. Call render function to show player the game state?
 
-
-
-  // function checkBoard() {
+  function checkBoard() {
+  //this for loop will iterate through the columns of the winningCombos array checking the values stored in each index.
+    for (let i = 0; i< winningCombos.length; i++){
+      const a = winningCombos[i][0]
+      const b = winningCombos[i][1]
+      const c = winningCombos[i][2]
+      const d = winningCombos[i][3]
+    }
+  }
   
-  // }
+  //function render()
 
