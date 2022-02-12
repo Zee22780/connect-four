@@ -89,8 +89,9 @@ const replayBtn = document.getElementById("replay=button")
 const message = document.getElementById("message")
 
 /*----------------------------- Event Listeners -----------------------------*/
-//circles.forEach(circle => circle.addEventListener("click", handleClick))
-  //adds a click event listener to each circle - the forEach method handles all 41 circles!
+//adds a click event listener to each circle - the forEach method handles all 41 circles!
+circles.forEach(circle => circle.addEventListener("click", handleClick))
+  
 //replayBtn.addEventListener("click", init)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -100,13 +101,15 @@ const message = document.getElementById("message")
     ////assign 1 to playerOne 
     ////assign -1 to playerTwo
   //hide replay button
-  ////start "turn" variable as null
+  ////start "turn" variable as 1 to represent that we start with playerOne
   ////assign null to winner variable
   //call render function
   ////start counter at zero
   //we need to limit the playerOne to only choosing from the bottom row
 
-  function inti() {
+  init()
+
+  function init() {
     board = [
       null, null, null, null, null, null, null,
       null, null, null, null, null, null, null,
@@ -117,17 +120,23 @@ const message = document.getElementById("message")
     ]
     playerOne = 1
     playerTwo = -1
-    turn = null
+    turn = 1
     winner = null
     counter = 0
   }
 
   //function handleClick
   //this function listens for event (in this case a click on one of the circles) and then does something. 
-    //we want it to store a value either 1 or -1 to show which player has played
-    //we want the circle to change color to represent a "chip" being placed
-    //
+    //does it call the render function?
   
+  function handleClick(evt){
+  //this removes the c from all of the circles id so that we just have a number (which also matches our board index number)
+    const index = evt.target.id.replace("c","")
+    board[index] = turn
+    console.log(board)
+  }
+
+
   //function checkBoard
   //This function will check the board for winners
     //uses the winningCombos array to look for winning combinations. Winning combos array is an array of arrays
@@ -137,7 +146,7 @@ const message = document.getElementById("message")
     //if any other sum, game should continue. Call render function to show player the game state?
 
   function checkBoard() {
-  //this for loop will iterate through the columns of the winningCombos array checking the values stored in each index.
+  //this for loop will iterate through the columns of the winningCombos array checking the values stored in each index and looking for a winnding combination.
     for (let i = 0; i< winningCombos.length; i++){
       const a = winningCombos[i][0]
       const b = winningCombos[i][1]
@@ -147,4 +156,6 @@ const message = document.getElementById("message")
   }
   
   //function render()
+  //we want it to store a value either 1 or -1 to show which player has played
+    //we want the circle to change color to represent a "chip" being placed when a circle is "clicked"
 
