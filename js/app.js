@@ -133,7 +133,8 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
   //this removes the c from all of the circles id so that we just have a number (which also matches our board index number)
     const index = evt.target.id.replace("c","")
     board[index] = turn
-    console.log(board)
+
+    render()
   }
 
 
@@ -155,7 +156,23 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
     }
   }
   
-  //function render()
-  //we want it to store a value either 1 or -1 to show which player has played
-    //we want the circle to change color to represent a "chip" being placed when a circle is "clicked"
+  //render function
+  //we want this function to store a value either 1 or -1 to show which player has played
+  //we want the circle to change color to represent a "chip" being placed when a circle is "clicked"
+  //need this function to also switch turns by multiplying the turn variable by -1. Turn initiates at 1.
+  
+  function render() {
+    board.forEach(function (circle, i) {
+      if(board[i] === 1){
+        circles[i].style.backgroundColor = "blue"
+      } else if (board[i] === -1){
+        circles[i].style.backgroundColor = "red"
+      } else if (board[i] === null) {
+        circles[i].style.backgroundColor = ""
+      }
+      turn = turn * -1
+    })
+    checkBoard()
+  }
+
 
