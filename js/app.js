@@ -88,14 +88,12 @@ let board, turn, winner, playerOne, playerTwo, counter
 
 /*------------------------ Cached Element References ------------------------*/
 const circles = document.querySelectorAll(".circle")
-const replayBtn = document.getElementById("replay=button")
+const replayBtn = document.getElementById("replay-button")
 const message = document.getElementById("message")
 
 /*----------------------------- Event Listeners -----------------------------*/
-//adds a click event listener to each circle - the forEach method handles all 41 circles!
 circles.forEach(circle => circle.addEventListener("click", handleClick))
-  
-//replayBtn.addEventListener("click", init)
+replayBtn.addEventListener("click", init)
 
 /*-------------------------------- Functions --------------------------------*/
   init()
@@ -115,6 +113,7 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
     winner = null
     counter = 0
     render()
+    replayBtn.setAttribute("hidden", true)
   }
 
   function handleClick(evt){
@@ -139,21 +138,6 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
     //if 4, playerOne has won
     //if -4, playerTwo has won
     //if any other sum, game should continue. Call render function to show player the game state?
-
-  function checkBoard() {
-    for (let i = 0; i< winningCombos.length; i++){
-      const a = winningCombos[i][0]
-      const b = winningCombos[i][1]
-      const c = winningCombos[i][2]
-      const d = winningCombos[i][3]
-    }
-    if(board[a] + board[b] + board[c] + board[d] === 4){
-      console.log("Player One Wins")
-      message.textContent = "Player One Wins!"
-    } else if(board[a] + board[b] + board[c] + board[d] === -4){
-      message.textContent = "Player Two Wins!"
-    }
-  }
   
   function render() {
     board.forEach(function (circle, i) {
@@ -168,5 +152,19 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
   checkBoard()
   }
 
-
+  function checkBoard() {
+    for (let i = 0; i< winningCombos.length; i++){
+      const a = winningCombos[i][0]
+      const b = winningCombos[i][1]
+      const c = winningCombos[i][2]
+      const d = winningCombos[i][3]
+    }
+    if(board[a] + board[b] + board[c] + board[d] === 4){
+      console.log("Player One Wins")
+      message.textContent = "Player One Wins!"
+    } else if(board[a] + board[b] + board[c] + board[d] === -4){
+      message.textContent = "Player Two Wins!"
+    }
+    replayBtn.removeAttribute("hidden")
+  }
 
