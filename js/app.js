@@ -71,7 +71,10 @@ const winningCombos = [
   [13, 20, 27, 34],
 ]
 
-
+const a = []
+const b = []
+const c = []
+const d = []
 
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner, playerOne, playerTwo, counter
@@ -117,7 +120,7 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
   function handleClick(evt){
     const index = evt.target.id.replace("c","")
     board[index] = turn
-    console.log(board)
+    // console.log(board)
 
     turn = turn * -1
 
@@ -126,7 +129,6 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
     } else if (turn === -1){
       message.textContent = "Player Two Turn"
     }
-    
     render()
   }
 
@@ -139,12 +141,17 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
     //if any other sum, game should continue. Call render function to show player the game state?
 
   function checkBoard() {
-  //this for loop will iterate through the columns of the winningCombos array checking the values stored in each index and looking for a winnding combination.
     for (let i = 0; i< winningCombos.length; i++){
       const a = winningCombos[i][0]
       const b = winningCombos[i][1]
       const c = winningCombos[i][2]
       const d = winningCombos[i][3]
+    }
+    if(board[a] + board[b] + board[c] + board[d] === 4){
+      console.log("Player One Wins")
+      message.textContent = "Player One Wins!"
+    } else if(board[a] + board[b] + board[c] + board[d] === -4){
+      message.textContent = "Player Two Wins!"
     }
   }
   
@@ -158,6 +165,7 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
         circles[i].style.backgroundColor = ""
       }
     })
+  checkBoard()
   }
 
 
