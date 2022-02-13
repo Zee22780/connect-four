@@ -76,8 +76,8 @@ const winningCombos = [
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner, playerOne, playerTwo, counter
 
-//board will hold the values of each cell - it should start as null
-//turn will track which players turn it is
+//board is an array and will hold the values of each cell - all should start as null
+//turn will track which players turn it is by going back and forth from playerOne to playerTwo after each click
 //winner will track who the winner is and will start as null
 //playerOne and playerTwo will be our players and they will each hold a value of 1 and -1 respectively (these are the values that will be going into the board array as the game is played)
 //counter will count the number of clicks on the board. We need this for determining if there is a tie.
@@ -123,6 +123,7 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
     turn = 1
     winner = null
     counter = 0
+    render()
   }
 
   //function handleClick
@@ -132,8 +133,10 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
   function handleClick(evt){
   //this removes the c from all of the circles id so that we just have a number (which also matches our board index number)
     const index = evt.target.id.replace("c","")
+  //each time a circle is clicked the value assigned to turn becomes the board index. This allows the turn to go back and forth from playerOne to playerTwo
     board[index] = turn
-
+    console.log(board)
+    turn = turn * -1
     render()
   }
 
@@ -157,9 +160,9 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
   }
   
   //render function
-  //we want this function to store a value either 1 or -1 to show which player has played
-  //we want the circle to change color to represent a "chip" being placed when a circle is "clicked"
+  //we want this function to change the color of each circle based on the value in the board index either 1 or -1 to show which player has played
   //need this function to also switch turns by multiplying the turn variable by -1. Turn initiates at 1.
+  //need to limit circles players can click on based on previous circles clicked
   
   function render() {
     board.forEach(function (circle, i) {
@@ -170,9 +173,7 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
       } else if (board[i] === null) {
         circles[i].style.backgroundColor = ""
       }
-      turn = turn * -1
     })
-    checkBoard()
   }
 
 
