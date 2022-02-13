@@ -127,16 +127,18 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
   }
 
   //function handleClick
-  //this function listens for event (in this case a click on one of the circles) and then does something. 
-    //does it call the render function?
-  
+  ////this function listens for event (in this case a click on one of the circles) and then does something. 
+    ////call the render function
+
   function handleClick(evt){
   //this removes the c from all of the circles id so that we just have a number (which also matches our board index number)
     const index = evt.target.id.replace("c","")
   //each time a circle is clicked the value assigned to turn becomes the board index. This allows the turn to go back and forth from playerOne to playerTwo
     board[index] = turn
     console.log(board)
+  //need this function to also switch turns by multiplying the turn variable by -1. Turn initiates at 1.
     turn = turn * -1
+    checkPlay()
     render()
   }
 
@@ -160,10 +162,7 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
   }
   
   //render function
-  //we want this function to change the color of each circle based on the value in the board index either 1 or -1 to show which player has played
-  //need this function to also switch turns by multiplying the turn variable by -1. Turn initiates at 1.
-  //need to limit circles players can click on based on previous circles clicked
-  
+  ////we want this function to change the color of each circle based on the value in the board index either 1 or -1 to show which player has played
   function render() {
     board.forEach(function (circle, i) {
       if(board[i] === 1){
@@ -176,4 +175,30 @@ circles.forEach(circle => circle.addEventListener("click", handleClick))
     })
   }
 
+//checkPlay function
+function checkPlay(evt){
+  //this function could be called in the event listener element to check if the play is allowed. 
+   //need to limit circles players can click on based on previous circles clicked
+      //first turn only bottom row would be allowed for playerOne to place a chip
+      //on second turn, playerTwo can place a chip in any cell on bottom row, except the place where playerOne placed their chip. Or they can place a chip directly above the chip already played. 
+      //after that both players can place a chip either on the bottom row of empty cells or above a cell that already has a chip.
+        //we need to use the board array. The null values can help determine whether the play is allowable or not. 
+    //also need to make sure a player can't click on a space that's already been selected by the other player. 
+
+  for(let i=0; i < board.length; i++){
+    const colOne = board[i][0]
+    const colTwo = board[i][1]
+    const colThree = board[i][2]
+    const colFour = board[i][3]
+    const colFive = board[i][4]
+    const colSix = board[i][5]
+    const colSeven = board[i][6]
+  }
+
+  if((board[i]-1) === null){
+    evt.preventDefault();
+    alert("Sorry. You can't place a chip here.")
+  }
+
+}
 
