@@ -91,13 +91,11 @@ const circles = document.querySelectorAll(".circle")
 const replayBtn = document.getElementById("replay-button")
 const message = document.getElementById("message")
 
-const rOne = document.querySelectorAll("#c0, #c1, #c2, #c3, #c4, #5, #6")
 
 /*----------------------------- Event Listeners -----------------------------*/
 circles.forEach(circle => circle.addEventListener("click", handleClick))
 replayBtn.addEventListener("click", init)
 
-rOne.forEach(circle => circle.addEventListener("mouseover", hover))
 
 /*-------------------------------- Functions --------------------------------*/
   init()
@@ -126,16 +124,6 @@ rOne.forEach(circle => circle.addEventListener("mouseover", hover))
     console.log(correctIdx)
   
     board[correctIdx] = turn
-
-  
-    //if board index has a value of 1 or -1 OR if there is a winner {
-    //   if (board[index] === 1 || board[index] === -1){
-    //     return
-    //   }
-
-    //   stop player from placing a chip
-    // return
-    // } 
 
     turn = turn * -1
 
@@ -175,10 +163,10 @@ rOne.forEach(circle => circle.addEventListener("mouseover", hover))
       if(board[a]+board[b]+board[c]+board[d] === 4){
         winner = 1
         console.log("Player One Wins")
-        message.textContent = "Player One Wins!"
+        message.textContent = "Player One Wins! Press Replay to Play Again"
       } else if(board[a]+board[b]+board[c]+board[d] === -4){
         winner = -1
-        message.textContent = "Player Two Wins!"
+        message.textContent = "Player Two Wins! Press Replay to Play Again"
       }
     }
     replayBtn.removeAttribute("hidden")
@@ -194,6 +182,3 @@ rOne.forEach(circle => circle.addEventListener("mouseover", hover))
       }
     }
 
-    function hover(){
-      rOne.style.backgroundColor = "grey"
-    }
