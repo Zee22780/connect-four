@@ -124,9 +124,9 @@ replayBtn.addEventListener("click", init)
     turn = turn * -1
 
     if(turn === 1){
-      message.textContent = "Player One Turn"
+      message.textContent = "Next: Player One Turn"
     } else if (turn === -1){
-      message.textContent = "Player Two Turn"
+      message.textContent = "Next: Player Two Turn"
     }
     render()
   }
@@ -142,9 +142,9 @@ replayBtn.addEventListener("click", init)
   function render() {
     board.forEach(function (circle, i) {
       if(board[i] === 1){
-        circles[i].style.backgroundColor = "blue"
+        circles[i].style.backgroundColor = "#ee9b00"
       } else if (board[i] === -1){
-        circles[i].style.backgroundColor = "red"
+        circles[i].style.backgroundColor = "#bb3e03"
       } else if (board[i] === null) {
         circles[i].style.backgroundColor = ""
       }
@@ -160,9 +160,11 @@ replayBtn.addEventListener("click", init)
       const d = winningCombos[i][3]
     }
     if(board[a] + board[b] + board[c] + board[d] === 4){
+      winner = 1
       console.log("Player One Wins")
       message.textContent = "Player One Wins!"
     } else if(board[a] + board[b] + board[c] + board[d] === -4){
+      winner = -1
       message.textContent = "Player Two Wins!"
     }
     replayBtn.removeAttribute("hidden")
