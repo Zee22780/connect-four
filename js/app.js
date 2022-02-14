@@ -117,9 +117,21 @@ replayBtn.addEventListener("click", init)
   }
 
   function handleClick(evt){
-    const index = evt.target.id.replace("c","")
-    board[index] = turn
-    // console.log(board)
+    const index = parseInt(evt.target.id.replace("c",""))
+    const correctIdx = checkPlacement(index)
+    console.log(correctIdx)
+  
+    board[correctIdx] = turn
+
+  
+    //if board index has a value of 1 or -1 OR if there is a winner {
+    //   if (board[index] === 1 || board[index] === -1){
+    //     return
+    //   }
+
+    //   stop player from placing a chip
+    // return
+    // } 
 
     turn = turn * -1
 
@@ -128,16 +140,13 @@ replayBtn.addEventListener("click", init)
     } else if (turn === -1){
       message.textContent = "Next: Player Two Turn"
     }
+    if(winner){
+      return
+    }
+
     render()
   }
 
-  //function checkBoard
-  //This function will check the board for winners
-    //uses the winningCombos array to look for winning combinations. Winning combos array is an array of arrays
-  //Needs to assess if there is a sum of 4 or -4 in each of these indexes. 
-    //if 4, playerOne has won
-    //if -4, playerTwo has won
-    //if any other sum, game should continue. Call render function to show player the game state?
   
   function render() {
     board.forEach(function (circle, i) {
@@ -158,15 +167,25 @@ replayBtn.addEventListener("click", init)
       const b = winningCombos[i][1]
       const c = winningCombos[i][2]
       const d = winningCombos[i][3]
-    }
-    if(board[a] + board[b] + board[c] + board[d] === 4){
-      winner = 1
-      console.log("Player One Wins")
-      message.textContent = "Player One Wins!"
-    } else if(board[a] + board[b] + board[c] + board[d] === -4){
-      winner = -1
-      message.textContent = "Player Two Wins!"
+    
+      if(board[a]+board[b]+board[c]+board[d] === 4){
+        winner = 1
+        console.log("Player One Wins")
+        message.textContent = "Player One Wins!"
+      } else if(board[a]+board[b]+board[c]+board[d] === -4){
+        winner = -1
+        message.textContent = "Player Two Wins!"
+      }
     }
     replayBtn.removeAttribute("hidden")
   }
 
+    function checkPlacement(idx){
+      console.log(idx)
+      //we want to loop through column one from index + 35 down to zero
+      for(let i = idx + 35; i <= 41 && i>= 0; i-=7){
+        if(board[i] === null){
+          return i
+        }
+      }
+    }
