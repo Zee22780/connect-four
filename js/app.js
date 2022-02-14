@@ -91,9 +91,13 @@ const circles = document.querySelectorAll(".circle")
 const replayBtn = document.getElementById("replay-button")
 const message = document.getElementById("message")
 
+const rOne = document.querySelectorAll("#c0, #c1, #c2, #c3, #c4, #5, #6")
+
 /*----------------------------- Event Listeners -----------------------------*/
 circles.forEach(circle => circle.addEventListener("click", handleClick))
 replayBtn.addEventListener("click", init)
+
+rOne.forEach(circle => circle.addEventListener("mouseover", hover))
 
 /*-------------------------------- Functions --------------------------------*/
   init()
@@ -188,4 +192,8 @@ replayBtn.addEventListener("click", init)
           return i
         }
       }
+    }
+
+    function hover(){
+      rOne.style.backgroundColor = "grey"
     }
