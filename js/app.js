@@ -90,7 +90,10 @@ const musicBtn = document.getElementById("music")
 /*----------------------------- Event Listeners -----------------------------*/
 circles.forEach(circle => circle.addEventListener("click", handleClick))
 replayBtn.addEventListener("click", init)
-
+musicBtn.addEventListener("click", function(evt){
+  playMusic.volume = .10
+  playMusic.play()
+})
 
 /*-------------------------------- Functions --------------------------------*/
   init()
