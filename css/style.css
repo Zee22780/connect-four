@@ -57,6 +57,7 @@ div {
 #music {
   background-color: #002c3d;
   color: #e9d8a6;
+  width: 100px;
 }
 
 .hovercircle:hover {
