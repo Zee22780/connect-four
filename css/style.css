@@ -54,6 +54,11 @@ div {
   color: #e9d8a6;
 }
 
+#music {
+  background-color: #002c3d;
+  color: #e9d8a6;
+}
+
 .hovercircle:hover {
   background-color: grey;
 }

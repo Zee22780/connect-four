@@ -174,7 +174,6 @@ replayBtn.addEventListener("click", init)
 
     function checkPlacement(idx){
       console.log(idx)
-      //we want to loop through column one from index + 35 down to zero
       for(let i = idx + 35; i <= 41 && i>= 0; i-=7){
         if(board[i] === null){
           return i
