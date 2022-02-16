@@ -64,6 +64,7 @@ footer {
   display: flex;
   justify-content: center;
   padding: 20px;
+  text-align: center;
 }
 
 #music {
@@ -99,7 +100,6 @@ footer {
   #replay-button {
     background-color: black;
     color: white;
-    width: auto;
   }
   footer {
     text-align: right;

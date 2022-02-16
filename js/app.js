@@ -77,9 +77,12 @@ const c = []
 const d = []
 
 const playMusic = new Audio("../music/Rush.mp3")
+const audio = document.getElementById("audio")
 
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner, playerOne, playerTwo, counter
+
+let count = 0
 
 /*------------------------ Cached Element References ------------------------*/
 const circles = document.querySelectorAll(".circle")
@@ -90,9 +93,19 @@ const musicBtn = document.getElementById("music")
 /*----------------------------- Event Listeners -----------------------------*/
 circles.forEach(circle => circle.addEventListener("click", handleClick))
 replayBtn.addEventListener("click", init)
+
 musicBtn.addEventListener("click", function(evt){
-  playMusic.volume = .10
-  playMusic.play()
+  // playMusic.volume = .10
+  // playMusic.play()
+  
+  if(count === 0){
+    count = 1
+    playMusic.volume = .10
+    audio.play()
+  } else {
+    count = 0;
+    audio.pause()
+  }
 })
 
 /*-------------------------------- Functions --------------------------------*/
@@ -136,7 +149,6 @@ musicBtn.addEventListener("click", function(evt){
 
     render()
   }
-
   
   function render() {
     board.forEach(function (circle, i) {
@@ -179,3 +191,12 @@ musicBtn.addEventListener("click", function(evt){
       }
     }
 
+function playPause() {
+  if(count === 0){
+    count = 1
+    audio.play()
+  } else{
+    count = 0;
+    audio.pause()
+  }
+}
