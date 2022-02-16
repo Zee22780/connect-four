@@ -85,7 +85,7 @@ let board, turn, winner, playerOne, playerTwo, counter
 const circles = document.querySelectorAll(".circle")
 const replayBtn = document.getElementById("replay-button")
 const message = document.getElementById("message")
-const musicBtn = document.getElementById("music").loop = true
+const musicBtn = document.getElementById("music")
 
 /*----------------------------- Event Listeners -----------------------------*/
 circles.forEach(circle => circle.addEventListener("click", handleClick))

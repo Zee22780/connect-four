@@ -81,7 +81,7 @@ section.board {
     text-align: center;
     color: white;
   }
-  div {
+  .circle {
     border-color: white;
   }
   #music {
