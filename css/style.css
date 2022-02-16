@@ -99,6 +99,7 @@ footer {
   #replay-button {
     background-color: black;
     color: white;
+    width: auto;
   }
   footer {
     text-align: right;
