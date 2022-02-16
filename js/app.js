@@ -102,9 +102,11 @@ musicBtn.addEventListener("click", function(evt){
     count = 1
     playMusic.volume = .10
     audio.play()
+    musicBtn.textContent = "Pause"
   } else {
     count = 0;
     audio.pause()
+    musicBtn.textContent = "Click for Music"
   }
 })
 
