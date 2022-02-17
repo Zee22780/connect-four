@@ -99,6 +99,7 @@ musicBtn.addEventListener("click", playPause)
   init()
 
   function init() {
+    message.textContent = "Click a cell in top row to play"
     board = [
       null, null, null, null, null, null, null,
       null, null, null, null, null, null, null,
@@ -133,7 +134,6 @@ musicBtn.addEventListener("click", playPause)
     if(winner){
       return
     }
-
     render()
   }
   
@@ -161,11 +161,9 @@ musicBtn.addEventListener("click", playPause)
         winner = 1
         console.log("Player One Wins")
         message.textContent = "Player One Wins! Press Replay to Play Again"
-        message.style.color = "#ee9b00"
       } else if(board[a]+board[b]+board[c]+board[d] === -4){
         winner = -1
         message.textContent = "Player Two Wins! Press Replay to Play Again"
-        message.style.color = "#bb3e03"
       }
     }
     replayBtn.removeAttribute("hidden")

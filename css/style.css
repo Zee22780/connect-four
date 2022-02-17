@@ -61,10 +61,13 @@ footer {
 }
 
 #replay-button {
+  display: flex;
   background-color: #002c3d;
   color: #e9d8a6;
   font-family: 'Anton', sans-serif;
+  justify-content: flex-start;
   text-align: center;
+  width: auto;
 }
 #music-button {
   display: flex;
@@ -107,6 +110,8 @@ footer {
   #replay-button {
     background-color: black;
     color: white;
+    justify-content: center;
+    text-align: center;
   }
   footer {
     text-align: right;
