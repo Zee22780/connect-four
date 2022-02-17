@@ -45,9 +45,9 @@ Emojis by [Emojipedia.](https://emojipedia.org/)
 ___
 
 ## **Stretch Goals** 🏋🏾‍♀️
-[ ] Add confetti when a player wins <br>
-[ ] Add sound for chips <br>
-[ ] Add background imagery that creates a cohesive theme <br>
-[ ] Change favicon for desktop view <br>
-[ ] When a player gets 3 chips in a row, change the color of the chips to highlight that they are close to winning <br>
-[ ] Make chips animate so that they appear to drop down from the top instead of being placed
+- [ ] Add confetti when a player wins <br>
+- [ ] Add sound for chips <br>
+- [ ] Add background imagery that creates a cohesive theme <br>
+- [ ] Change favicon for desktop view <br>
+- [ ] When a player gets 3 chips in a row, change the color of the chips to highlight that they are close to winning <br>
+- [ ] Make chips animate so that they appear to drop down from the top instead of being placed
