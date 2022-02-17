@@ -71,16 +71,11 @@ const winningCombos = [
   [13, 20, 27, 34],
 ]
 
-const a = []
-const b = []
-const c = []
-const d = []
-
 const playMusic = new Audio("../music/Rush.mp3")
 const audio = document.getElementById("audio")
 
 /*---------------------------- Variables (state) ----------------------------*/
-let board, turn, winner, playerOne, playerTwo, counter
+let board, turn, winner, playerOne, playerTwo
 let count = 0
 
 /*------------------------ Cached Element References ------------------------*/
@@ -93,7 +88,6 @@ const musicBtn = document.getElementById("music")
 circles.forEach(circle => circle.addEventListener("click", handleClick))
 replayBtn.addEventListener("click", init)
 musicBtn.addEventListener("click", playPause)
-
 
 /*-------------------------------- Functions --------------------------------*/
   init()
@@ -112,7 +106,6 @@ musicBtn.addEventListener("click", playPause)
     playerTwo = -1
     turn = 1
     winner = null
-    counter = 0
     render()
     replayBtn.setAttribute("hidden", true)
   }
@@ -120,21 +113,16 @@ musicBtn.addEventListener("click", playPause)
   function handleClick(evt){
     const index = parseInt(evt.target.id.replace("c",""))
     const correctIdx = checkPlacement(index)
-    console.log(correctIdx)
   
     board[correctIdx] = turn
-
     turn = turn * -1
+    console.log(index)
 
-    if(turn === 1){
-      message.textContent = "Next: Player One Turn"
-    } else if (turn === -1){
-      message.textContent = "Next: Player Two Turn"
-    }
-    if(winner){
+    if(board[index] || winner){
       return
     }
     render()
+    checkBoard()
   }
   
   function render() {
@@ -145,6 +133,12 @@ musicBtn.addEventListener("click", playPause)
         circles[i].style.backgroundColor = "#bb3e03"
       } else if (board[i] === null) {
         circles[i].style.backgroundColor = ""
+      }
+
+      if(turn === 1){
+        message.textContent = "Next: Player One Turn"
+      } else if (turn === -1){
+        message.textContent = "Next: Player Two Turn"
       }
     })
   checkBoard()
@@ -159,7 +153,6 @@ musicBtn.addEventListener("click", playPause)
     
       if(board[a]+board[b]+board[c]+board[d] === 4){
         winner = 1
-        console.log("Player One Wins")
         message.textContent = "Player One Wins! Press Replay to Play Again"
       } else if(board[a]+board[b]+board[c]+board[d] === -4){
         winner = -1
@@ -170,7 +163,6 @@ musicBtn.addEventListener("click", playPause)
   }
 
     function checkPlacement(idx){
-      console.log(idx)
       for(let i = idx + 35; i <= 41 && i>= 0; i-=7){
         if(board[i] === null){
           return i

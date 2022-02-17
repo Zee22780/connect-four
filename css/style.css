@@ -65,9 +65,11 @@ footer {
   background-color: #002c3d;
   color: #e9d8a6;
   font-family: 'Anton', sans-serif;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
+  align-items: center;
   width: auto;
+  font-size: 2vw;
 }
 #music-button {
   display: flex;
