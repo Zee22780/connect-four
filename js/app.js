@@ -81,7 +81,6 @@ const audio = document.getElementById("audio")
 
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner, playerOne, playerTwo, counter
-
 let count = 0
 
 /*------------------------ Cached Element References ------------------------*/
@@ -93,22 +92,8 @@ const musicBtn = document.getElementById("music")
 /*----------------------------- Event Listeners -----------------------------*/
 circles.forEach(circle => circle.addEventListener("click", handleClick))
 replayBtn.addEventListener("click", init)
+musicBtn.addEventListener("click", playPause)
 
-musicBtn.addEventListener("click", function(evt){
-  // playMusic.volume = .10
-  // playMusic.play()
-  
-  if(count === 0){
-    count = 1
-    playMusic.volume = .10
-    audio.play()
-    musicBtn.textContent = "Pause"
-  } else {
-    count = 0;
-    audio.pause()
-    musicBtn.textContent = "Click for Music"
-  }
-})
 
 /*-------------------------------- Functions --------------------------------*/
   init()
@@ -193,12 +178,16 @@ musicBtn.addEventListener("click", function(evt){
       }
     }
 
-function playPause() {
-  if(count === 0){
-    count = 1
-    audio.play()
-  } else{
-    count = 0;
-    audio.pause()
-  }
-}
+    function playPause(evt) {
+      if(count === 0){
+        count = 1
+        playMusic.volume = .10
+        audio.play()
+        audio.loop = true
+        musicBtn.textContent = "Pause"
+      } else {
+        count = 0;
+        audio.pause()
+        musicBtn.textContent = "Click for Music"
+      }
+    }
