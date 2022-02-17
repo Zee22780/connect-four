@@ -29,6 +29,10 @@ body {
   align-items: center;
 }
 
+#welcome {
+  font-size: 25px;
+}
+
 #welcome, #message {
   text-align: center;
   color: #002c3d;
@@ -59,6 +63,7 @@ footer {
 #replay-button {
   background-color: #002c3d;
   color: #e9d8a6;
+  font-family: 'Anton', sans-serif;
 }
 #music-button {
   display: flex;
@@ -71,6 +76,7 @@ footer {
   display: flex;
   background-color: #002c3d;
   color: #e9d8a6;
+  font-family: 'Anton', sans-serif;
   width: 100px;
   justify-content: center;
 }
