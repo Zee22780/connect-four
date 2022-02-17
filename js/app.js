@@ -113,16 +113,21 @@ musicBtn.addEventListener("click", playPause)
   function handleClick(evt){
     const index = parseInt(evt.target.id.replace("c",""))
     const correctIdx = checkPlacement(index)
-  
+    
+    if (![0,1,2,3,4,5,6].includes(index)) {
+      console.log(index)
+      return
+    }   
+
     board[correctIdx] = turn
     turn = turn * -1
-    console.log(index)
 
-    if(board[index] || winner){
+    //board[index]
+
+    if(winner){
       return
     }
     render()
-    checkBoard()
   }
   
   function render() {
@@ -152,8 +157,8 @@ musicBtn.addEventListener("click", playPause)
       const d = winningCombos[i][3]
     
       if(board[a]+board[b]+board[c]+board[d] === 4){
-        winner = 1
-        message.textContent = "Player One Wins! Press Replay to Play Again"
+      winner = 1
+      message.textContent = "Player One Wins! Press Replay to Play Again"
       } else if(board[a]+board[b]+board[c]+board[d] === -4){
         winner = -1
         message.textContent = "Player Two Wins! Press Replay to Play Again"
