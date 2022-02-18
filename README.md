@@ -38,10 +38,6 @@ ___
 
 Music by O!z (no website currently)
 
-Read Me shields by [Dev.](https://dev.to/envoy_/150-badges-for-github-pnk)
-
-Emojis by [Emojipedia.](https://emojipedia.org/)
-
 ___
 
 ## **Stretch Goals** 🏋🏾‍♀️
@@ -51,3 +47,9 @@ ___
 - [ ] Change favicon for desktop view <br>
 - [ ] When a player gets 3 chips in a row, change the color of the chips to highlight that they are close to winning <br>
 - [ ] Make chips animate so that they appear to drop down from the top instead of being placed
+
+___
+
+Read Me shields by [Dev.](https://dev.to/envoy_/150-badges-for-github-pnk)
+
+Emojis by [Emojipedia.](https://emojipedia.org/)
